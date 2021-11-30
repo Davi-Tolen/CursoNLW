@@ -1,0 +1,23 @@
+html{ 
+    font-family: 'Roboto', sans-serif;
+}
+
+/*BOX MODEL
+
+Modelo de caixa
+Toda caixa tem
+largura, altura, espaçamentos, preenchimentos,
+bordas, cor, fundo, maneira que é vista pelo html
+*/
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
