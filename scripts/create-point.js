@@ -5,10 +5,14 @@ function PopulateUfs(){
     fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
     .then( res => res.json())
     .then( states => {
-
-        for(const state in states){
-            ufSelect.innerHTML += `<option value="${state}">${state}</option>`
-        }
+        // console.log(states)
+        states.forEach((state) => {
+            ufSelect.innerHTML += `<option value="${state.id}">${state.nome}</option>`
+        })
+        // for(const state in states){
+        //     // console.log(state)
+        //     ufSelect.innerHTML += `<option value="${state.id}">${state.nome}</option>`
+        // }
 
     })
 }
@@ -25,9 +29,12 @@ function getCities(){
     .then( res => res.json())
     .then( cities => {
 
-        for(const city in cities){
-            citySelect.innerHTML += `<option value="${city}">${city}</option>`
-        }
+        cities.forEach((city) => {
+            citySelect.innerHTML += `<option value="${city.id}">${city.nome}</option>`
+        })
+        // for(const city in cities){
+        //     citySelect.innerHTML += `<option value="${city}">${city}</option>`
+        // }
 
         citySelect.disabled = false
 
@@ -38,6 +45,4 @@ function getCities(){
 
 document
     .querySelector("select[name=uf]")
-    .addEventListener("change", () => {
-        console.log("mudei")
-    })
+    .addEventListener("change", getCities)
