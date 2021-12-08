@@ -24,6 +24,8 @@ function getCities(){
     const stateInput = document.querySelector("input[name=state]")
     const ufValue = event.target.value
 
+
+
     const indexOfSelectedState = event.target.selectedIndex
     stateInput.value = event.target.options[indexOfSelectedState].text
 
@@ -37,11 +39,8 @@ function getCities(){
     .then( cities => {
 
         cities.forEach((city) => {
-            citySelect.innerHTML += `<option value="${city.id}">${city.nome}</option>`
+            citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`
         })
-        // for(const city in cities){
-        //     citySelect.innerHTML += `<option value="${city}">${city}</option>`
-        // }
 
         citySelect.disabled = false
 
